@@ -1,0 +1,5 @@
+#include <tgbot/tgbot.h>
+
+int main() {
+    return 0;
+}
