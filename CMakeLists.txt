@@ -30,4 +30,4 @@ add_subdirectory(tgbot-cpp)
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 target_link_libraries(${PROJECT_NAME} TgBot)
-target_link_directories(${PROJECT_NAME} PRIVATE tgbot-cpp/include)
+target_link_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/tgbot-cpp/include)
