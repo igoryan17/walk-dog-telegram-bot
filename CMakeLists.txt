@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(walking-dog-telegram-bot)
-
-set(CMAKE_CXX_STANDARD 17)
+project(walking-dog-telegram-bot
+        DESCRIPTION "telegram bot for walking dog project"
+        LANGUAGES CXX)
 
 find_package(Git QUIET)
 
@@ -27,7 +27,10 @@ endif()
 
 add_subdirectory(tgbot-cpp)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+set(BOT "bot")
+set(BOT_SOURCES src/main.cpp)
+add_executable(${BOT} ${BOT_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} TgBot)
-target_link_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/tgbot-cpp/include)
+target_compile_features(${BOT} PUBLIC cxx_std_17)
+target_link_libraries(${BOT} TgBot)
+target_link_directories(${BOT} PRIVATE ${PROJECT_SOURCE_DIR}/tgbot-cpp/include)
